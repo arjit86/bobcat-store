@@ -1,0 +1,6 @@
+10 cap 
+20 bag 
+2 socks 
+12 glasses  
+9 tshirt 
+12 pants

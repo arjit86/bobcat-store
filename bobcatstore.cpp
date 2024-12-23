@@ -7,14 +7,17 @@ struct store {
     int price;
 };
 
-void sumItems(store cloth[100]);
+// void sumItems(store cloth[100]);
 void displayItems(store cloth[100]);
 void readPrice (store cloth[100]);
 void displayChart();
-int checkoutItems(store cloth[100]);
+void checkoutItems(store cloth[100],int &totalPrice,int &num1);
+void printReceipt(store cloth[100], int num1);
 int main()
 {
     int num;
+    int num1;
+    int totalPrice;
     store cloth[100];
     // Initialize the array elements
     for (int i = 0; i < 100; i++) {
@@ -32,7 +35,7 @@ int main()
         if (num==1){
             displayItems(cloth);
         }else if (num==2){
-            checkoutItems(cloth);
+            checkoutItems(cloth,totalPrice,num1);
             // sumItems(cloth);
         }else if (num==4){
             return -1;
@@ -76,21 +79,25 @@ void displayChart(){
     cout<<"**************************************"<<endl;
 }
 
-int checkoutItems(store cloth[100]){
-    int num1;
+void checkoutItems(store cloth[100], int &totalPrice, int &num1){
+    
     cout<<"**************************************"<<endl;
     cout<<"Enter the number of the product you want to check out ";
     cin>>num1;
     num1 = num1 - 1;
     cout<<"You choose"<<cloth[num1].product<<" and the price is "<<cloth[num1].price<<"$"<<endl;
-    return cloth[num1].price;
+    // checkoutItems(cloth); 
+    totalPrice += cloth[num1].price;
+    cout<<"Your total price is"<<totalPrice<<endl;
+    printReceipt(cloth,num1);
     
 }
 
-void sumItems (store cloth[100]){
-    
-    int totalPrice = 0; 
-    totalPrice += checkoutItems(cloth);
-    cout<<"Your total price is"<<totalPrice;
-}
+void printReceipt(store cloth[100], int num1){
+    int price[50];
+    char item[50];
 
+
+    
+    
+}
